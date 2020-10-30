@@ -119,3 +119,58 @@ li a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.center-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #9c9c9cf2;
+}
+
+.offer {
+    height: 500px;
+    width: 400px;
+    padding: 10px 20px;
+    display: grid;
+    justify-items: start;
+    align-items: center;
+
+    background-color: #242424;
+}
+
+.two-in-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.offer ul {
+    padding: 10px;
+    margin: 0;
+}
+
+.offer li {
+    list-style: none;
+    margin: 10px;
+}
+
+.button-pay {
+    justify-self: center;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.offer-items-container {
+    height: 300px;
+    width: 400px;
+    overflow: auto;
+    background-color: #333;
+}

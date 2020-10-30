@@ -231,3 +231,11 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+function showMakeOffer () {
+    document.querySelector(".center-wrapper").style.display = ""
+}
+
+function hideMakeOffer () {
+    document.querySelector(".center-wrapper").style.display = "none"
+}
