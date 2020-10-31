@@ -36,9 +36,8 @@
 
     </header>
 
-    <div class="center-wrapper" id="offer-container" style="display: none;"
-        onclick="((e) => {var ev = e || window.event; if (ev.target.classList.contains('center-wrapper')) {hideMakeOffer();}})()">
-        <div class="offer">
+    <div class="center-wrapper" id="offer-container" onclick="hideCenterWrapper()">
+        <div class="offer" onclick="event.stopPropagation()">
             <div class="offer-items-container">
                 <ul>
                     <!-- <li>
@@ -56,11 +55,26 @@
                 <span>Номер карты</span>
                 <input type="text" placeholder="Input" name="">
             </div>
-            <div class="two-in-row"><span>Конечная цена</span><span class="offer-cost" style="color: red;">1999.99 $</span></div>
+            <div class="two-in-row"><span>Конечная цена</span><span class="offer-cost" style="color: red;">1999.99
+                    $</span></div>
             <button class="button-pay">Оплатить</button>
         </div>
     </div>
-
+    <div class="center-wrapper" id="login-container" style="display: none;" onclick="hideCenterWrapper()">
+        <div class="offer" onclick="event.stopPropagation()">
+            <div class="two-in-row">
+                <span>Промокод</span>
+                <input type="text" placeholder="Input" name="">
+            </div>
+            <div class="two-in-row">
+                <span>Номер карты</span>
+                <input type="text" placeholder="Input" name="">
+            </div>
+            <div class="two-in-row"><span>Конечная цена</span><span class="offer-cost" style="color: red;">1999.99
+                    $</span></div>
+            <button class="button-pay">Оплатить</button>
+        </div>
+    </div>
     <main>
         <nav class="nav">
             <ul class="list">

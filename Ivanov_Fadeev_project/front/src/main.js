@@ -238,6 +238,6 @@ function showMakeOffer () {
     document.querySelector("#offer-container").style.display = "";
 }
 
-function hideMakeOffer () {
-    document.querySelector("#offer-container").style.display = "none"
+function hideCenterWrapper () {
+    document.querySelectorAll(".center-wrapper").forEach(e => e.style.display = "none");
 }

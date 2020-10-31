@@ -41,5 +41,3 @@ var Offer = {
         alert('Hmm');
     }
 }
-
-
