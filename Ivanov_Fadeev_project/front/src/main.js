@@ -235,9 +235,9 @@ function dragElement(elmnt) {
 function showMakeOffer () {
     Offer.addItemsList(CART.getAll());
     Offer.renderItems();
-    document.querySelector(".center-wrapper").style.display = "";
+    document.querySelector("#offer-container").style.display = "";
 }
 
 function hideMakeOffer () {
-    document.querySelector(".center-wrapper").style.display = "none"
+    document.querySelector("#offer-container").style.display = "none"
 }
