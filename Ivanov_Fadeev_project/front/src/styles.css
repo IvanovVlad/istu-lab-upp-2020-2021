@@ -11,7 +11,7 @@ body {
     background: #1d1d1d;
 }
 
-main {
+.index-wrapper {
     display: grid;
     grid-template: auto / 20% 1fr;
     width: 90%;
