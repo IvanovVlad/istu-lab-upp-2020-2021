@@ -7,3 +7,7 @@ function showMakeOffer () {
 function hideCenterWrapper () {
     document.querySelectorAll(".center-wrapper").forEach(e => e.style.display = "none");
 }
+
+function showContactForm () {
+    document.querySelector("#contact-form").style.display = "";
+}
