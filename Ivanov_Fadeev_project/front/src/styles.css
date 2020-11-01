@@ -221,3 +221,42 @@ li a:hover {
 #mail-us {
     cursor: pointer;
 }
+
+.live-chat {
+    padding: 20px;
+    position: fixed;
+    width: 300px;
+    right: 5%;
+    bottom: 5%;
+
+    background-color: #000;
+    border-radius: 20px;
+}
+
+.chat-box {
+    height: 300px;
+    background-color: #333;
+    padding: 10px;
+}
+
+.live-chat .two-in-row {
+    margin: 10px 0;
+}
+
+.chat-message {
+    padding: 5px;
+    display: flex;
+    max-width: 200px;
+    margin: 10px 0;
+
+    background-color: #242424;
+}
+
+.message-right {
+    justify-content: flex-end;
+    margin-left: 75px;
+}
+
+.message-left {
+    justify-content: flex-start;
+}
