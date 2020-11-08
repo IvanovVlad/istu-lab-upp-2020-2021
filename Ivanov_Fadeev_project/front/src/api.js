@@ -36,6 +36,17 @@ function getItems(genre, description, page, limit) {
 
 }
 
+async function getItemById(id) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    return fetch(`http://localhost:3000/items/${id}`, requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+}
+
 function isGenre(str) {
     return Object.keys(GenreList).reduce((reducer, key) => {
         return reducer ? true : GenreList[key] === str
