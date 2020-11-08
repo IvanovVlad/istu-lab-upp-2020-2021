@@ -1,5 +1,5 @@
-import { Controller, Get, Body, Post, ValidationPipe, BadRequestException, Query, Delete } from '@nestjs/common';
-import { ProductsResponce, PaginationOptions } from 'src/service/pagination';
+import { Controller, Get, Body, Post, ValidationPipe, BadRequestException, Query, Delete, Param } from '@nestjs/common';
+import { ProductsResponce, PaginationOptions, ItemResponce } from 'src/service/pagination';
 import { ProductService } from './product.service';
 
 @Controller('items')
@@ -13,5 +13,10 @@ export class ProductController {
         var { genre, description, page, limit } = qu;
         var responce = await this.productService.getAll(new PaginationOptions(page, limit));
         return responce;
+    }
+
+    @Get(":id")
+    async GetById(@Param() params): Promise<ItemResponce> {
+        return await this.productService.getById(params.id);
     }
 }

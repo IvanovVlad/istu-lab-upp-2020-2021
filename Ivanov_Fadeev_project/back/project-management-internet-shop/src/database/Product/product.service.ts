@@ -27,6 +27,15 @@ export class ProductService {
         return pr;
     }
 
+    async getById(id: number): Promise<ItemResponce> {
+        var item = await this.productRepository.find({
+            relations: ["genre"],
+            where: { id: id }
+        });
+
+        return await this.convertToResponceItem(item[0])
+    }
+
     async convertToResponceItem(p): Promise<ItemResponce> {
         var ir = new ItemResponce();
         ir.price = p.price;
