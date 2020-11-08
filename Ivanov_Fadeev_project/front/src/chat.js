@@ -4,8 +4,6 @@ var right = true;
 function hideChat() {
     var chat = document.querySelector(".live-chat")
 
-    console.log(chat.style);
-
     if (hidden) {
         chat.style = '';
     } else {

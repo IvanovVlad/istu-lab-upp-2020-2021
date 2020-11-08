@@ -16,6 +16,8 @@ const itemsContainer = document.querySelector('.items-container')
 const pagesContainer = document.querySelector('.pages')
 const searchContainer = document.querySelector('.search')
 
+var response;
+
 function getItems(genre, description, page, limit) {
     if (genre && genre !== '') GENRE = GenreList[genre.toUpperCase()]
 
@@ -27,6 +29,7 @@ function getItems(genre, description, page, limit) {
     fetch(`http://localhost:3000/items?genre=${isGenre(genre) ? genre : ''}&description=${description}&page=${page}&limit=${limit}`, requestOptions)
         .then(response => response.json())
         .then(result => {
+            response = result;
             itemsContainer.innerHTML = parseItemsToHtml(result)
         })
         .catch(error => console.log('error', error));

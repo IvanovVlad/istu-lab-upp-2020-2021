@@ -32,6 +32,7 @@ export class ProductService {
         ir.price = p.price;
         ir.title = p.title;
         ir.genre = await this.getGenres(p);
+        ir.id = p.id;
 
         return ir;
     }
