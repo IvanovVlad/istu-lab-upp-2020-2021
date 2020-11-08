@@ -11,12 +11,14 @@ export class Product extends BaseEntity {
     @Column()
     quantity: number;
 
+    @Column()
+    title: string;
+
     @Column({ type: "money" })
     price: number;
 
-    @OneToMany(() => GenreList, genreList => genreList.id)
-    @JoinColumn({name: "genre_id"})
-    genre_id: GenreList;
+    @OneToMany(() => GenreList, gl => gl.product_id)
+    genre: GenreList[];
 
     @OneToOne(() => Description, description => description.id)
     @JoinColumn({name: "description_id"})
