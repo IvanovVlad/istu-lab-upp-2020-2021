@@ -27,13 +27,15 @@ export class ProductService {
         return pr;
     }
 
-    async getById(id: number): Promise<ItemResponce> {
-        var item = await this.productRepository.find({
-            relations: ["genre"],
-            where: { id: id }
-        });
-
-        return await this.convertToResponceItem(item[0])
+    async getById(id: number): Promise<any> {
+        return this.productRepository.query(`
+        select p.id, p.title, p.price, d.text, i.* from product p
+        left join description d
+        on p.description_id = d.id
+        left join image i
+        on p.description_id = i.desc_id
+        where p.id = '${id}'
+        `)
     }
 
     async convertToResponceItem(p): Promise<ItemResponce> {
@@ -58,5 +60,13 @@ export class ProductService {
         }
 
         return xd.join(', ');
+    }
+
+    async getByDescription(description: string) : Promise<ItemResponce[]> {
+        return await this.productRepository.getByDescription(description);
+    }
+
+    async getByGenre(genre: string) : Promise<ItemResponce[]> {
+        return await this.productRepository.getByGenre(genre);
     }
 }

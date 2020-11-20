@@ -85,6 +85,11 @@ function addToCart(element) {
     refreshCartContainer();
 }
 
+function addToCartPlain(title, genre, price) {
+    CART.addItem(title, genre, price)
+    refreshCartContainer();
+}
+
 function removefromCart(element) {
     const itemParams = element.parentElement;
 

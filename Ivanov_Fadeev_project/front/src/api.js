@@ -18,22 +18,49 @@ const searchContainer = document.querySelector('.search')
 
 var response;
 
-function getItems(genre, description, page, limit) {
-    if (genre && genre !== '') GENRE = GenreList[genre.toUpperCase()]
-
+function getItems(page, limit) {
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
 
-    fetch(`http://localhost:3000/items?genre=${isGenre(genre) ? genre : ''}&description=${description}&page=${page}&limit=${limit}`, requestOptions)
+    fetch(`http://localhost:3000/items?&page=${page}&limit=${limit}`, requestOptions)
         .then(response => response.json())
         .then(result => {
             response = result;
             itemsContainer.innerHTML = parseItemsToHtml(result)
         })
         .catch(error => console.log('error', error));
+}
 
+function getItemsByGenre(page, limit, genre) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(`http://localhost:3000/items?&genre=${genre}&page=${page}&limit=${limit}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            response = result;
+            itemsContainer.innerHTML = parseItemsToHtml(result)
+        })
+        .catch(error => console.log('error', error));
+}
+
+function getItemsBySearch(page, limit, search) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+
+    fetch(`http://localhost:3000/items?page=${page}&limit=${limit}&description=${document.querySelector('div.search input[type=text]').value}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            response = result;
+            itemsContainer.innerHTML = parseItemsToHtml(result)
+        })
+        .catch(error => console.log('error', error));
 }
 
 async function getItemById(id) {
@@ -58,18 +85,18 @@ function parseItemsToHtml(itemsJson) {
         MAXPAGE = itemsJson.pages;
         claculatePages(MAXPAGE);
     }
-    
+
     return itemsJson.items.reduce((str, item) => {
         return str +=
             `<div class="item-tile">
             <div class="item-tile_top">
-                <img class="cover" src="./resources/123.png" alt="">
+                <img id="${item.id}" onclick="openItemPage(this.id)" class="cover" src="./resources/123.png" alt="">
                 <div class="sticker"></div>
                 <div class="item-tile_bottom">
                     <div class="item-name">${item.title}</div>
                     <div class="genre">${item.genre}</div>
                     <div class="price">
-                        <span>${Number.parseFloat(item.price.replace(/[^0-9.-]+/g,""))} $</span>
+                        <span>${Number.parseFloat(item.price.replace(/[^0-9.-]+/g, ""))} $</span>
                         <span><button onclick="addToCart(this)">купить</button></span>
                     </div>
                 </div>
@@ -90,14 +117,12 @@ function claculatePages(maxPages) {
     }
 }
 
-pagesContainer.addEventListener('click', (click) => {
-    if (click.target.innerText.length < 3)
-        getItems(GENRE, '', parseInt(click.target.innerText), LIMIT);
-})
+if (pagesContainer) {
+    pagesContainer.addEventListener('click', (click) => {
+        if (click.target.innerText.length < 3)
+            getItems(GENRE, '', parseInt(click.target.innerText), LIMIT);
+    })
 
-searchContainer.querySelector('button').addEventListener('click', () => {
-    const searchWord = searchContainer.querySelector('input').value
-    getItems('', searchWord, 0, LIMIT)
-})
+}
 
 getItems('', '', 0, LIMIT);

@@ -11,3 +11,7 @@ function hideCenterWrapper () {
 function showContactForm () {
     document.querySelector("#contact-form").style.display = "";
 }
+
+function openItemPage(id) {
+    window.open(`${window.location.origin}/item.html?&id=${id}`);
+}

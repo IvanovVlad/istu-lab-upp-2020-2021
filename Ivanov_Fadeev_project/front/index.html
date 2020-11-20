@@ -15,7 +15,7 @@
         <div class="logo">
             <h1>Soft web store</h1>
         </div>
-        <div class="search"><input type="text" placeholder="Input" name=""><button>Search</button></div>
+        <div class="search"><input type="text" placeholder="Input" name=""><button type="submit" onclick="getItemsBySearch(0, LIMIT)">Search</button></div>
         <div class="user-short" onclick="showLoginForm()">МОЯ УЧЕТКА</div>
         <div class="cart">
             <div class="cart-title">Моя корзина / <span></span> / </div>
@@ -123,16 +123,16 @@
         <div class="index-wrapper">
             <nav class="nav">
                 <ul class="list">
-                    <li class="item"> <a onclick="getItems('action', '', 0, LIMIT)">Экшн</a></li>
-                    <li class="item"> <a onclick="getItems('rpg', '', 0, LIMIT)">Ролевые</a></li>
-                    <li class="item"> <a onclick="getItems('adventure', '', 0, LIMIT)">Приключения</a></li>
-                    <li class="item"> <a onclick="getItems('strategy', '', 0, LIMIT)">Стратегии</a></li>
-                    <li class="item"> <a onclick="getItems('simulation', '', 0, LIMIT)">Симуляторы</a></li>
-                    <li class="item"> <a onclick="getItems('race', '', 0, LIMIT)">Гонки</a></li>
-                    <li class="item"> <a onclick="getItems('sports', '', 0, LIMIT)">Спорт</a></li>
-                    <li class="item"> <a onclick="getItems('other', '', 0, LIMIT)">Другие</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'action')">Экшн</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'rpg')">Ролевые</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'adventure')">Приключения</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'strategy')">Стратегии</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'simulation')">Симуляторы</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'race')">Гонки</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'sports')">Спорт</a></li>
+                    <li class="item"> <a onclick="getItemsByGenre(0, LIMIT, 'other')">Другие</a></li>
                     <ul class="list">
-                        <li class="item"> <a onclick="getItems('', '', 0, LIMIT)">Все игры</a></li>
+                        <li class="item"> <a onclick="getItems(0, LIMIT)">Все игры</a></li>
                     </ul>
                 </ul>
             </nav>
