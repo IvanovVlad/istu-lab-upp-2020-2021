@@ -19,10 +19,10 @@ export const TypeOrmConfig: TypeOrmModuleOptions = {
     entities: [Customer, Description, GenreList, Genre,
         Image, Offer, Product, ProductKey, Image],
     synchronize: true,
-    // ssl: true,
-    // extra: {
-    //     ssl: {
-    //         rejectUnauthorized: false,
-    //     },
-    // },
+    ssl: true,
+    extra: {
+        ssl: {
+            rejectUnauthorized: false,
+        },
+    },
 }

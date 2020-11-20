@@ -58,7 +58,7 @@ function parseItemsToHtml(itemsJson) {
         MAXPAGE = itemsJson.pages;
         claculatePages(MAXPAGE);
     }
-
+    
     return itemsJson.items.reduce((str, item) => {
         return str +=
             `<div class="item-tile">
@@ -69,7 +69,7 @@ function parseItemsToHtml(itemsJson) {
                     <div class="item-name">${item.title}</div>
                     <div class="genre">${item.genre}</div>
                     <div class="price">
-                        <span>${item.price} $</span>
+                        <span>${Number.parseFloat(item.price.replace(/[^0-9.-]+/g,""))} $</span>
                         <span><button onclick="addToCart(this)">купить</button></span>
                     </div>
                 </div>
