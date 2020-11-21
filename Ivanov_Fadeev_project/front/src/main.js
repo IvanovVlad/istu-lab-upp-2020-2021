@@ -13,5 +13,5 @@ function showContactForm () {
 }
 
 function openItemPage(id) {
-    window.open(`${window.location.origin}/item.html?&id=${id}`);
+    window.open(`${window.location.href}/item.html?&id=${id}`);
 }
