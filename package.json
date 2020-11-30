@@ -1,0 +1,26 @@
+{
+  "name": "istu-lab-upp-2020-2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanovVlad/istu-lab-upp-2020-2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanovVlad/istu-lab-upp-2020-2021/issues"
+  },
+  "homepage": "https://github.com/IvanovVlad/istu-lab-upp-2020-2021#readme",
+  "dependencies": {
+    "reveal.js": "^4.1.0",
+    "webpack": "^5.9.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.2.0"
+  }
+}
