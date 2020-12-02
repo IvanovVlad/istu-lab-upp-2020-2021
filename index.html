@@ -87,19 +87,17 @@
     <script src="./dist/main.js"></script>
 	<script type="text/javascript">
 		document.body.addEventListener('wheel', (ev) => {
-			var a = reveal.availableRoutes();
-		
 				if (ev.deltaY < 0) {
 					// right / down
-					if (a.bottom) {
-					
+					if (reveal.availableRoutes().down) {
+						reveal.down();
 					} else {
 						reveal.right();
 					}
 				}
 				if (ev.deltaY > 0) {
 					// left / up
-					if (a.top) {
+					if (reveal.availableRoutes().top) {
 						reveal.up()
 					} else {
 						reveal.left();
